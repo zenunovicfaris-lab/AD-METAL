@@ -3,25 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-barlow), Barlow, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Selection color */
+::selection {
+  background: #f59e0b33;
+  color: #f59e0b;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .steel-border {
+    border: 1px solid rgba(156, 163, 175, 0.15);
+  }
+  .glow-accent {
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.15);
+  }
+  .glow-accent-hover:hover {
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.25);
   }
 }
