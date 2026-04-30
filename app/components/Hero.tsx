@@ -13,7 +13,6 @@ export default function Hero() {
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src="/hero-video.mp4"
-        poster="/images/ponude%20bez%20cijena/garaza.jpg"
         autoPlay
         muted
         loop
