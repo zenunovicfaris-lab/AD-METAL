@@ -40,19 +40,6 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 mb-8 px-4 py-2 border border-white/20 bg-black/30 backdrop-blur-sm"
-        >
-          <span className="w-1.5 h-1.5 bg-[#f59e0b] animate-pulse" />
-          <span className="text-white/80 text-xs font-bold tracking-[0.25em] uppercase">
-            Bosna &amp; Hercegovina
-          </span>
-        </motion.div>
-
         {/* Headline — editorial, not techy */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -99,24 +86,24 @@ export default function Hero() {
           </button>
         </motion.div>
 
-        {/* Stats row */}
+        {/* Stats row — clean horizontal, no boxes */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="mt-16 flex flex-wrap justify-center gap-px border border-white/10 bg-white/5 backdrop-blur-sm w-fit mx-auto"
+          className="mt-16 flex justify-center items-center gap-10 sm:gap-16"
         >
           {[
             { value: "100+", label: "Završenih projekata" },
             { value: "10+", label: "Godina iskustva" },
             { value: "24h", label: "Odgovor na upit" },
           ].map((stat, i) => (
-            <div
-              key={stat.label}
-              className={`text-center px-8 py-5 bg-black/20 ${i < 2 ? "border-r border-white/10" : ""}`}
-            >
-              <div className="text-2xl font-black text-[#f59e0b] tabular-nums">{stat.value}</div>
-              <div className="text-xs text-white/50 mt-1 tracking-widest uppercase">{stat.label}</div>
+            <div key={stat.label} className="flex items-center gap-10 sm:gap-16">
+              <div className="text-center">
+                <div className="text-3xl font-black text-[#f59e0b] tabular-nums leading-none">{stat.value}</div>
+                <div className="text-xs text-white/50 mt-1.5 tracking-widest uppercase font-medium">{stat.label}</div>
+              </div>
+              {i < 2 && <div className="w-px h-8 bg-white/15 hidden sm:block" />}
             </div>
           ))}
         </motion.div>
